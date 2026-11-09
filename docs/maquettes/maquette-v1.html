@@ -567,18 +567,15 @@
   const empty = '<td class="na">—</td>'.repeat(5);
   const tbody = document.getElementById('monthly');
   tbody.innerHTML = prod.map(([, m, v], i) => `<tr class="mrow" data-k="${keys[i]}" tabindex="0" aria-expanded="false"><td><span class="chev">›</span>${m}</td><td>${fmt(v)}</td>${empty}</tr>`).reverse().join('');
-  // Mois → semaines (du lundi au dimanche, coupées au mois) → jours.
+  // Mois → semaines de 7 jours à partir du 1er (1–7, 8–14, 15–21, 22–28, 29–fin) → jours.
   const kwh1 = (v) => v.toLocaleString('fr-BE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const weeksOf = (k) => {
     const days = daily[k] || [];
     const weeks = [];
-    days.forEach((v, i) => {
-      const dow = new Date(`${k}-${String(i + 1).padStart(2, '0')}T12:00:00Z`).getUTCDay(); // 0 = dimanche
-      if (i === 0 || dow === 1) weeks.push({ from: i, to: i, sum: 0 });
-      const w = weeks[weeks.length - 1];
-      w.to = i;
-      w.sum += v;
-    });
+    for (let from = 0; from < days.length; from += 7) {
+      const to = Math.min(from + 6, days.length - 1);
+      weeks.push({ from, to, sum: days.slice(from, to + 1).reduce((a, v) => a + v, 0) });
+    }
     return weeks;
   };
   const monthShort = (k) => new Date(`${k}-01T12:00:00Z`).toLocaleDateString('fr-BE', { month: 'short', timeZone: 'UTC' });
