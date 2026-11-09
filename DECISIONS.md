@@ -31,6 +31,11 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   (2024-2025) et ≈ 6 200 kWh/an (2025-2026), approximation car périodes civiles ≠ périodes de régularisation.
   La consommation augmente alors que la production est stable : le surplus fond. Cause : **climatisation**, très
   utilisée en été (au moment où les panneaux produisent). Le surplus dépendra donc de la chaleur de chaque été.
+- 🔎 **Consommation 2025-2026 (précise)** : rapport journalier de l'onduleur, 7 009 kWh produits du 01/09/2025 au
+  30/08/2026, plus ≈ 265 kWh estimés pour les 14 jours manquants jusqu'au 13/09/2026 (≈ 19 kWh/jour), soit ≈ 7 275 kWh
+  sur la période de régularisation. Consommation = 7 275 − 913 ≈ **6 360 kWh sur 378 jours, ≈ 6 150 kWh/an**.
+  Production très saisonnière : 86 kWh en janvier, 1 136 kWh en juillet. Le rapport prévoit des colonnes réseau,
+  consommation et batterie, vides aujourd'hui.
 - 🔎 **Coût marginal d'un kWh** prélevé, indice 114,46 : ≈ **39,1 c€ TVAC** (énergie 15,96 + verte 3,30 + distribution
   11,98 + transport 2,74 + accise 4,88 + cotisation 0,20 + raccordement 0,075). Recharges : 20 kWh = 7,83 € ;
   40 kWh = 15,65 € ; 60 kWh = 23,48 €. +10 €/MWh d'indice = +1,16 c€/kWh.

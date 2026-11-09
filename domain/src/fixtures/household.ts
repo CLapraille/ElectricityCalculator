@@ -24,6 +24,24 @@ export const household = {
       netKwh: -913,
     },
   ],
+  /**
+   * Production solaire mensuelle (kWh), rapport journalier de l'onduleur du 01/09/2025 au 30/08/2026.
+   * Total 7 009 kWh sur 364 jours.
+   */
+  monthlyProductionKwh: {
+    '2025-09': 547.7,
+    '2025-10': 328.1,
+    '2025-11': 206.0,
+    '2025-12': 155.4,
+    '2026-01': 86.1,
+    '2026-02': 209.2,
+    '2026-03': 670.6,
+    '2026-04': 917.6,
+    '2026-05': 930.0,
+    '2026-06': 980.8,
+    '2026-07': 1136.1,
+    '2026-08': 841.4,
+  },
   /** Indice BELPEX_M_RLP déduit du prix indicatif de novembre 2026 de la carte (15,96 c€ TVAC en simple). */
   belpexMRlpOctober2026: 114.46,
 } as const;
