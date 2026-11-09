@@ -36,6 +36,9 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   sur la période de régularisation. Consommation = 7 275 − 913 ≈ **6 360 kWh sur 378 jours, ≈ 6 150 kWh/an**.
   Production très saisonnière : 86 kWh en janvier, 1 136 kWh en juillet. Le rapport prévoit des colonnes réseau,
   consommation et batterie, vides aujourd'hui.
+- 🔎 **Onduleur** : ZCS Azzurro 5 kW (modèle exact à lire sur l'étiquette : hybride `HYD` ou non). Les 5,5 kWe du tarif
+  prosumer correspondent sans doute à sa puissance apparente maximale (5,5 kVA). ≈ 7 000 kWh/an pour 5 kW AC :
+  panneaux probablement surdimensionnés (≈ 7 kWc), avec écrêtage à 5 kW les jours d'été.
 - 🔎 **Coût marginal d'un kWh** prélevé, indice 114,46 : ≈ **39,1 c€ TVAC** (énergie 15,96 + verte 3,30 + distribution
   11,98 + transport 2,74 + accise 4,88 + cotisation 0,20 + raccordement 0,075). Recharges : 20 kWh = 7,83 € ;
   40 kWh = 15,65 € ; 60 kWh = 23,48 €. +10 €/MWh d'indice = +1,16 c€/kWh.
