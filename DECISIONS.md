@@ -126,7 +126,8 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
     prélevé / injecté) et « batterie » (affichée en attente jusqu'à son installation, après 2030) ; jauge-batterie du surplus ; **prix du kWh en anneau** (100 %) avec le prix de chaque partie (énergie,
     distribution, transport, énergie verte, taxes) ; frise des échéances.
   - Recharges : anneaux kWh du mois et montant viré, kWh par jour, liste des recharges, détail d'une recharge.
-  - Historique : barre de progression du mois, chiffres clés par année, production par mois en colonnes, bilan mensuel.
+  - Historique : barre de progression du mois, chiffres clés par année, production par mois en colonnes, bilan mensuel
+    **dépliable jour par jour** (toucher un mois affiche ses jours, avec une mini-barre de production par jour).
   - Contrat : période du contrat, formule, redevance, réseau et taxes, indice, comparaison des offres en barres.
   Production réelle ; recharges, provisions et flux du mois = exemples.
 
