@@ -114,6 +114,11 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   import du rapport Excel en secours) ; recharges via l'**API Zaptec** (remplace la saisie manuelle de D6 dès que la
   borne est installée). Identifiants rangés dans le Key Vault, jamais dans le dépôt.
 
+- ✅ **D22 Interface** : **sobre et compréhensible au premier regard** ; un **pictogramme pour chaque intervenant**
+  (panneaux solaires, maison, voiture et borne, réseau, compte séparé, plus tard batterie), le même partout (cartes,
+  tableaux, graphiques, barres de progression). Jeu d'icônes libre et cohérent (Lucide ou équivalent), une couleur
+  fixe par intervenant, thème clair et sombre comme HMT.
+
 ## Questions ouvertes
 
 À poser à **ORES** :
@@ -134,7 +139,7 @@ Techniques :
   Reference Price / Belpex : à vérifier sur quelques jours dès que l'app a accès au réseau.
 - ❓ **Q8** Source et format des profils RLP Synergrid (fichiers annuels), et leur moyenne « tous GRD ».
 - ❓ **Q10** Accès API ZCS : le code client (« Client Code ») ou le jeton n'est pas public, il se demande par ticket sur
-  zcsazzurro.com. Quel portail utilise l'utilisateur (ancien zcsazzurroportal.com ou nouveau zcsazzurrosystemsweb.com) ?
-  L'API est décrite comme peu fiable par des intégrateurs : garder l'import Excel en secours.
+  zcsazzurro.com. L'utilisateur est sur le **nouveau portail** (zcsazzurrosystemsweb.com) : c'est l'« API Azzurro
+  System » qu'il faut demander (ticket en cours). L'API est décrite comme peu fiable par des intégrateurs : garder l'import Excel en secours.
 - ❓ **Q9** Après 2030 : prélèvement et injection séparés (les index actuels ne donnent que le net), batterie domestique,
   contrat dynamique.
