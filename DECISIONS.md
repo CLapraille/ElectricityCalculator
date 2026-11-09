@@ -119,6 +119,10 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   tableaux, graphiques, barres de progression). Jeu d'icônes libre et cohérent (Lucide ou équivalent), une couleur
   fixe par intervenant, thème clair et sombre comme HMT.
 
+- ✅ **D23 Maquette v1** (`docs/maquettes/maquette-v1.html`) : 4 onglets Accueil · Recharges · Historique · Contrat,
+  même coque que HMT. Accueil = montant à mettre de côté, production du mois comparée à l'an passé, surplus restant,
+  prix du kWh, compte séparé, « À savoir » (alerte et échéances). Production réelle ; recharges et provisions = exemples.
+
 ## Questions ouvertes
 
 À poser à **ORES** :
@@ -138,8 +142,12 @@ Techniques :
 - ❓ **Q7** Format des réponses `griddata.elia.be` (champs `dateTime`, `price`, fuseau) et équivalence avec le Belgian
   Reference Price / Belpex : à vérifier sur quelques jours dès que l'app a accès au réseau.
 - ❓ **Q8** Source et format des profils RLP Synergrid (fichiers annuels), et leur moyenne « tous GRD ».
-- ❓ **Q10** Accès API ZCS : le code client (« Client Code ») ou le jeton n'est pas public, il se demande par ticket sur
-  zcsazzurro.com. L'utilisateur est sur le **nouveau portail** (zcsazzurrosystemsweb.com) : c'est l'« API Azzurro
-  System » qu'il faut demander (ticket en cours). L'API est décrite comme peu fiable par des intégrateurs : garder l'import Excel en secours.
+- ❓ **Q10** Accès API ZCS (« API Terze Parti Azzurro », manuel italien fourni par l'utilisateur) : jeton demandé
+  depuis le portail zcsazzurrosystemsweb.com (fonction annoncée « en développement » dans le manuel : sinon ticket),
+  reçu par e-mail. Appels `POST` sur une passerelle AWS (eu-west-1) avec les en-têtes `x-api-key` = e-mail et
+  `x-api-secret` = jeton. Commandes : `realtimeData`, `historicData` (fenêtre de **24 h maximum**, un échantillon toutes
+  les ~5 min), `deviceAlarm`, `deviceHistoricAlarm`. Production du jour = écart de `energyGeneratingTotal` (compteur
+  cumulé) entre deux échantillons. Reprise de l'historique : import Excel plutôt que des centaines d'appels.
+  Les alarmes de l'onduleur pourront alimenter l'alerte de production.
 - ❓ **Q9** Après 2030 : prélèvement et injection séparés (les index actuels ne donnent que le net), batterie domestique,
   contrat dynamique.
