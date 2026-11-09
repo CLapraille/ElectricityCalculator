@@ -103,6 +103,17 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   facturés, à mettre en balance avec la consommation du foyer en heures PIC (16,57). Dépend de Q2 (compatibilité avec
   la compensation) et demande des données horodatées (Zaptec, P1).
 
+- ✅ **D20 Onglet « Historique »** : production, prélèvement, injection, consommation de la maison, recharges et montant
+  provisionné, par mois et par année. Comparaison du **mois en cours avec le même mois de l'année précédente** sous forme
+  de **barre de progression** mise à jour chaque jour : cumul du mois à date comparé au cumul de l'année précédente à la
+  même date (et au total du mois complet de l'année précédente), avec l'écart en %. En tête, les informations importantes :
+  surplus solaire restant (kWh de recharge encore « gratuits »), état du compte séparé (provisions comparées à la part
+  réelle estimée), prix du kWh et indice du mois, alerte de production anormalement basse, échéances (fin de contrat,
+  nouvelle carte tarifaire, régularisation, fin de la compensation).
+- ✅ **D21 Sources automatiques** : production via l'**API du portail ZCS Azzurro** (accès à demander à ZCS ;
+  import du rapport Excel en secours) ; recharges via l'**API Zaptec** (remplace la saisie manuelle de D6 dès que la
+  borne est installée). Identifiants rangés dans le Key Vault, jamais dans le dépôt.
+
 ## Questions ouvertes
 
 À poser à **ORES** :
@@ -122,5 +133,8 @@ Techniques :
 - ❓ **Q7** Format des réponses `griddata.elia.be` (champs `dateTime`, `price`, fuseau) et équivalence avec le Belgian
   Reference Price / Belpex : à vérifier sur quelques jours dès que l'app a accès au réseau.
 - ❓ **Q8** Source et format des profils RLP Synergrid (fichiers annuels), et leur moyenne « tous GRD ».
+- ❓ **Q10** Accès API ZCS : le code client (« Client Code ») ou le jeton n'est pas public, il se demande par ticket sur
+  zcsazzurro.com. Quel portail utilise l'utilisateur (ancien zcsazzurroportal.com ou nouveau zcsazzurrosystemsweb.com) ?
+  L'API est décrite comme peu fiable par des intégrateurs : garder l'import Excel en secours.
 - ❓ **Q9** Après 2030 : prélèvement et injection séparés (les index actuels ne donnent que le net), batterie domestique,
   contrat dynamique.
