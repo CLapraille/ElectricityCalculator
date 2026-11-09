@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+# Factures, cartes tarifaires et relevés réels : jamais versionnés (dépôt public)
+templates/
+samples/

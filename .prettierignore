@@ -1,0 +1,7 @@
+dist
+coverage
+docs
+spikes
+templates
+*.md
+package-lock.json
