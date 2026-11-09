@@ -25,6 +25,11 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   jusqu'au **31/12/2030** (installation d'avant 2024). Onduleur 5,5 kWe.
 - 🔎 **Bilan net annuel** (prélèvement − injection) : −1 765 kWh (2024-2025), −913 kWh (2025-2026). Énergie facturée :
   0 kWh. La facture n'est faite que de frais fixes (≈ 563 € TVAC en 2026, dont ≈ 463 € de tarif prosumer).
+- 🔎 **Production solaire** (onduleur, années civiles) : 6,59 MWh (2024), 7,23 MWh (2025), 6,96 MWh (2026, au
+  09/11/2026 si année en cours). Soit ≈ 1 200 à 1 300 kWh par kWe d'onduleur (puissance crête des panneaux
+  probablement > 5,5 kWc). **Consommation totale estimée** = production + variation du compteur : ≈ 5 300 kWh/an
+  (2024-2025) et ≈ 6 200 kWh/an (2025-2026), approximation car périodes civiles ≠ périodes de régularisation.
+  La consommation augmente alors que la production est stable : le surplus fond.
 - 🔎 **Coût marginal d'un kWh** prélevé, indice 114,46 : ≈ **39,1 c€ TVAC** (énergie 15,96 + verte 3,30 + distribution
   11,98 + transport 2,74 + accise 4,88 + cotisation 0,20 + raccordement 0,075). Recharges : 20 kWh = 7,83 € ;
   40 kWh = 15,65 € ; 60 kWh = 23,48 €. +10 €/MWh d'indice = +1,16 c€/kWh.
