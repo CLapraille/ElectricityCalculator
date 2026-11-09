@@ -193,14 +193,19 @@
   .ringbox .ring { display: block; max-width: none; }
   .ringbox .ringtxt { position: absolute; inset: 0; top: 0; max-width: none; aspect-ratio: auto; }
   .listcard .list { border: 0; border-radius: 0; background: none; margin: 0 -16px -14px; border-top: 1px solid var(--line); }
-  table.t tr.mrow { cursor: pointer; }
-  table.t tr.mrow:hover td { background: var(--surface-2); }
-  table.t tr.mrow:focus-visible { outline: 2px solid var(--accent); }
+  table.t tr.mrow, table.t tr.wrow { cursor: pointer; }
+  table.t tr.wrow td { font-size: 0.85rem; background: color-mix(in srgb, var(--surface-2) 30%, transparent); }
+  table.t tr.wrow td:first-child { padding-left: 18px; }
+  table.t tr.wrow small { color: var(--muted); font-size: 0.75rem; margin-left: 4px; }
+  tr.wrow[aria-expanded='true'] .chev { transform: rotate(90deg); }
+  tr.wrow[aria-expanded='true'] td { font-weight: 700; }
+  table.t tr.mrow:hover td, table.t tr.wrow:hover td { background: var(--surface-2); }
+  table.t tr.mrow:focus-visible, table.t tr.wrow:focus-visible { outline: 2px solid var(--accent); }
   .chev { display: inline-block; width: 14px; margin-right: 4px; text-align: center; color: var(--muted); transition: transform 0.15s; }
   tr.mrow[aria-expanded='true'] .chev { transform: rotate(90deg); }
   tr.mrow[aria-expanded='true'] td { font-weight: 700; }
   table.t tr.drow td { font-size: 0.8rem; padding-top: 4px; padding-bottom: 4px; border-top-style: dotted; background: color-mix(in srgb, var(--surface-2) 45%, transparent); }
-  table.t tr.drow td:first-child { padding-left: 22px; color: var(--muted); }
+  table.t tr.drow td:first-child { padding-left: 44px; color: var(--muted); }
   .dbar { display: inline-block; width: 34px; height: 6px; border-radius: 3px; background: var(--surface-2); margin-right: 6px; vertical-align: middle; }
   .dbar i { display: block; height: 100%; border-radius: 3px; background: var(--sun); }
   .ringcap { font-size: 0.8rem; color: var(--muted); text-align: center; }
@@ -502,7 +507,7 @@
             </tr></thead>
             <tbody id="monthly"></tbody>
           </table></div>
-          <div class="info">Touche un mois pour voir le détail jour par jour. Prélevé, injecté et maison : dès le compteur communicant (février 2027). Maison = produit + prélevé − injecté − voiture.</div>
+          <div class="info">Touche un mois pour voir ses semaines, puis une semaine pour voir ses jours. Prélevé, injecté et maison : dès le compteur communicant (février 2027). Maison = produit + prélevé − injecté − voiture.</div>
         </div>
       </div>
     </section>
@@ -562,18 +567,51 @@
   const empty = '<td class="na">—</td>'.repeat(5);
   const tbody = document.getElementById('monthly');
   tbody.innerHTML = prod.map(([, m, v], i) => `<tr class="mrow" data-k="${keys[i]}" tabindex="0" aria-expanded="false"><td><span class="chev">›</span>${m}</td><td>${fmt(v)}</td>${empty}</tr>`).reverse().join('');
-  tbody.addEventListener('click', (e) => toggle(e.target.closest('tr.mrow')));
-  tbody.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e.target.closest('tr.mrow')); } });
-  function toggle(tr) {
+  // Mois → semaines (du lundi au dimanche, coupées au mois) → jours.
+  const kwh1 = (v) => v.toLocaleString('fr-BE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const weeksOf = (k) => {
+    const days = daily[k] || [];
+    const weeks = [];
+    days.forEach((v, i) => {
+      const dow = new Date(`${k}-${String(i + 1).padStart(2, '0')}T12:00:00Z`).getUTCDay(); // 0 = dimanche
+      if (i === 0 || dow === 1) weeks.push({ from: i, to: i, sum: 0 });
+      const w = weeks[weeks.length - 1];
+      w.to = i;
+      w.sum += v;
+    });
+    return weeks;
+  };
+  const monthShort = (k) => new Date(`${k}-01T12:00:00Z`).toLocaleDateString('fr-BE', { month: 'short', timeZone: 'UTC' });
+  const onRow = (e) => {
+    const tr = e.target.closest('tr.mrow, tr.wrow');
     if (!tr) return;
+    if (e.type === 'keydown') { if (e.key !== 'Enter' && e.key !== ' ') return; e.preventDefault(); }
+    tr.classList.contains('mrow') ? toggleMonth(tr) : toggleWeek(tr);
+  };
+  tbody.addEventListener('click', onRow);
+  tbody.addEventListener('keydown', onRow);
+  function toggleMonth(tr) {
+    const k = tr.dataset.k;
     const open = tr.getAttribute('aria-expanded') === 'true';
-    tbody.querySelectorAll(`tr.drow[data-k="${tr.dataset.k}"]`).forEach((r) => r.remove());
+    tbody.querySelectorAll(`tr.wrow[data-k="${k}"], tr.drow[data-k="${k}"]`).forEach((r) => r.remove());
     tr.setAttribute('aria-expanded', String(!open));
     if (open) return;
-    const days = daily[tr.dataset.k] || [];
-    const dmax = Math.max(...days);
-    tr.insertAdjacentHTML('afterend', days.map((v, i) =>
-      `<tr class="drow" data-k="${tr.dataset.k}"><td>${dayName(tr.dataset.k, i)}</td><td><span class="dbar"><i style="width:${(v / dmax * 100).toFixed(0)}%"></i></span>${v.toLocaleString('fr-BE', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>${empty}</tr>`).join(''));
+    const weeks = weeksOf(k);
+    const wmax = Math.max(...weeks.map((w) => w.sum));
+    tr.insertAdjacentHTML('afterend', weeks.map((w, n) =>
+      `<tr class="wrow" data-k="${k}" data-w="${n}" tabindex="0" aria-expanded="false"><td><span class="chev">›</span>Sem. ${n + 1} <small>${w.from + 1}–${w.to + 1} ${monthShort(k)}</small></td><td><span class="dbar"><i style="width:${(w.sum / wmax * 100).toFixed(0)}%"></i></span>${fmt(w.sum)}</td>${empty}</tr>`).join(''));
+  }
+  function toggleWeek(tr) {
+    const { k, w } = tr.dataset;
+    const open = tr.getAttribute('aria-expanded') === 'true';
+    tbody.querySelectorAll(`tr.drow[data-k="${k}"][data-w="${w}"]`).forEach((r) => r.remove());
+    tr.setAttribute('aria-expanded', String(!open));
+    if (open) return;
+    const wk = weeksOf(k)[Number(w)];
+    const days = (daily[k] || []).slice(wk.from, wk.to + 1);
+    const dmax = Math.max(...(daily[k] || [0]));
+    tr.insertAdjacentHTML('afterend', days.map((v, j) =>
+      `<tr class="drow" data-k="${k}" data-w="${w}"><td>${dayName(k, wk.from + j)}</td><td><span class="dbar"><i style="width:${(v / dmax * 100).toFixed(0)}%"></i></span>${kwh1(v)}</td>${empty}</tr>`).join(''));
   }
 
   // Recharges par jour (exemple).

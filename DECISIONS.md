@@ -127,7 +127,8 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
     distribution, transport, énergie verte, taxes) ; frise des échéances.
   - Recharges : anneaux kWh du mois et montant viré, kWh par jour, liste des recharges, détail d'une recharge.
   - Historique : barre de progression du mois, chiffres clés par année, production par mois en colonnes, bilan mensuel
-    **dépliable jour par jour** (toucher un mois affiche ses jours, avec une mini-barre de production par jour).
+    **dépliable sur 3 niveaux** : mois → semaines (du lundi au dimanche, coupées aux bornes du mois : la 1re et la
+    dernière peuvent être incomplètes) → jours, avec une mini-barre de production à chaque niveau.
   - Contrat : période du contrat, formule, redevance, réseau et taxes, indice, comparaison des offres en barres.
   Production réelle ; recharges, provisions et flux du mois = exemples.
 
