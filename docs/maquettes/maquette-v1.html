@@ -188,6 +188,11 @@
   .ring .track.dashed { stroke: var(--battery); stroke-width: 3; stroke-dasharray: 6 6; opacity: 0.6; }
   .ringcard.ghost .ringtxt b { color: var(--muted); }
   .sw.soft { opacity: 0.4; }
+  .ctitle { font-weight: 700; justify-self: stretch; text-align: left; font-size: 0.95rem; }
+  .ringbox { position: relative; width: 100%; max-width: 150px; }
+  .ringbox .ring { display: block; max-width: none; }
+  .ringbox .ringtxt { position: absolute; inset: 0; top: 0; max-width: none; aspect-ratio: auto; }
+  .listcard .list { border: 0; border-radius: 0; background: none; margin: 0 -16px -14px; border-top: 1px solid var(--line); }
   .ringcap { font-size: 0.8rem; color: var(--muted); text-align: center; }
 
   .gaugehead { display: flex; align-items: center; gap: 10px; }
@@ -300,33 +305,33 @@
       <div class="flowhead"><span class="ttl">Novembre, au 9</span><span class="example">exemple</span></div>
       <div class="cards">
         <div class="card ringcard piggy">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.5 400"/></svg>
-          <div class="ringtxt"><span class="actor sm piggy"><svg class="i"><use href="#i-piggy"/></svg></span><b class="num">34,98 €</b><span>à virer</span></div>
+          <div class="ctitle">Compte séparé</div>
+          <div class="ringbox"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.5 400"/></svg><div class="ringtxt"><span class="actor sm piggy"><svg class="i"><use href="#i-piggy"/></svg></span><b class="num">34,98 €</b><span>à virer</span></div></div>
           <div class="cap2">sur ≈ 163 € attendus ce mois</div>
         </div>
         <div class="card ringcard sun">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="162.1 400"/><circle cx="60" cy="60" r="50" class="tick" stroke-dasharray="2.5 400" stroke-dashoffset="-143.6"/></svg>
-          <div class="ringtxt"><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><b class="num">106 kWh</b><span>produits</span></div>
+          <div class="ctitle">Production</div>
+          <div class="ringbox"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="162.1 400"/><circle cx="60" cy="60" r="50" class="tick" stroke-dasharray="2.5 400" stroke-dashoffset="-143.6"/></svg><div class="ringtxt"><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><b class="num">106 kWh</b><span>produits</span></div></div>
           <div class="cap2"><span class="delta up">+12 %</span> vs 2025 à date<br>trait = 2025 au 9 nov.</div>
         </div>
         <div class="card ringcard car">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.3 400"/></svg>
-          <div class="ringtxt"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><b class="num">89 kWh</b><span>rechargés</span></div>
+          <div class="ctitle">Recharges</div>
+          <div class="ringbox"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.3 400"/></svg><div class="ringtxt"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><b class="num">89 kWh</b><span>rechargés</span></div></div>
           <div class="cap2">3 recharges · sur ≈ 417 kWh par mois en moyenne</div>
         </div>
         <div class="card ringcard house">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="97.4 400"/></svg>
-          <div class="ringtxt"><span class="actor sm house"><svg class="i"><use href="#i-house"/></svg></span><b class="num">161 kWh</b><span>maison</span></div>
+          <div class="ctitle">Maison</div>
+          <div class="ringbox"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="97.4 400"/></svg><div class="ringtxt"><span class="actor sm house"><svg class="i"><use href="#i-house"/></svg></span><b class="num">161 kWh</b><span>maison</span></div></div>
           <div class="cap2">sans la voiture · sur ≈ 520 kWh par mois en moyenne</div>
         </div>
         <div class="card ringcard grid">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="237 400"/><circle cx="60" cy="60" r="50" class="val soft" stroke-dasharray="70 400" stroke-dashoffset="-242"/></svg>
-          <div class="ringtxt"><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><b class="num">+144 kWh</b><span>solde réseau</span></div>
+          <div class="ctitle">Réseau</div>
+          <div class="ringbox"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="237 400"/><circle cx="60" cy="60" r="50" class="val soft" stroke-dasharray="70 400" stroke-dashoffset="-242"/></svg><div class="ringtxt"><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><b class="num">+144 kWh</b><span>solde réseau</span></div></div>
           <div class="cap2"><span class="sw" style="--c:var(--grid)"></span> 210 prélevés · <span class="sw soft" style="--c:var(--grid)"></span> 66 injectés<br>facturé : le solde de l'année</div>
         </div>
         <div class="card ringcard battery ghost">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track dashed"/></svg>
-          <div class="ringtxt"><span class="actor sm battery"><svg class="i"><use href="#i-battery"/></svg></span><b class="num">— %</b><span>batterie</span></div>
+          <div class="ctitle">Batterie</div>
+          <div class="ringbox"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track dashed"/></svg><div class="ringtxt"><span class="actor sm battery"><svg class="i"><use href="#i-battery"/></svg></span><b class="num">— %</b><span>batterie</span></div></div>
           <div class="cap2">pas encore installée<br>prévue après 2030</div>
         </div>
         <div class="card sun wide">
@@ -377,13 +382,13 @@
       <div class="flowhead"><span class="ttl">Novembre</span><span class="example">exemple</span></div>
       <div class="cards">
         <div class="card ringcard car">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.3 400"/></svg>
-          <div class="ringtxt"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><b class="num">89,4 kWh</b><span>3 recharges</span></div>
+          <div class="ctitle">Recharges du mois</div>
+          <div class="ringbox"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.3 400"/></svg><div class="ringtxt"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><b class="num">89,4 kWh</b><span>3 recharges</span></div></div>
           <div class="cap2">moyenne 29,8 kWh par recharge</div>
         </div>
         <div class="card ringcard piggy">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/></svg>
-          <div class="ringtxt"><span class="actor sm piggy"><svg class="i"><use href="#i-piggy"/></svg></span><b class="num">0 / 34,98 €</b><span>virés</span></div>
+          <div class="ctitle">Virements</div>
+          <div class="ringbox"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/></svg><div class="ringtxt"><span class="actor sm piggy"><svg class="i"><use href="#i-piggy"/></svg></span><b class="num">0 / 34,98 €</b><span>virés</span></div></div>
           <div class="cap2">3 recharges à virer</div>
         </div>
         <div class="card car wide">
@@ -391,7 +396,9 @@
           <div class="days" id="days"></div>
           <div class="dayaxis"><span>1</span><span>10</span><span>20</span><span>30</span></div>
         </div>
-        <div class="list wide">
+        <div class="card wide listcard">
+          <div class="cardhead"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><span class="ttl">Détail des recharges</span></div>
+          <div class="list">
           <button class="row" type="button">
             <span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span>
             <span class="main">Dim. 9 nov., 22:10</span>
@@ -413,6 +420,7 @@
             <span class="kbar"><i style="width:69%"></i></span>
             <span class="sub">6 h 40 · <span class="chip warn">à virer</span></span>
           </button>
+        </div>
         </div>
         <div class="card grid wide">
           <div class="cardhead"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><span class="ttl">Recharge de 20 kWh</span><b class="num">7,83 €</b></div>
@@ -445,18 +453,22 @@
           <div class="info">Barre entière = novembre 2025 complet. Trait = 2025 au même jour. Mise à jour chaque jour.</div>
         </div>
         <div class="card center sun">
+          <div class="ctitle">Production 2025</div>
           <span class="actor sun"><svg class="i"><use href="#i-sun"/></svg></span>
           <span class="bigv num">7 235</span><span class="cap2">kWh produits en 2025<br><span class="delta up">+10 %</span> vs 2024</span>
         </div>
         <div class="card center house">
+          <div class="ctitle">Consommation</div>
           <span class="actor house"><svg class="i"><use href="#i-house"/></svg></span>
           <span class="bigv num">≈ 6 150</span><span class="cap2">kWh consommés par an<br>(régularisation 2025-26)</span>
         </div>
         <div class="card center grid">
+          <div class="ctitle">Solde réseau</div>
           <span class="actor grid"><svg class="i"><use href="#i-grid"/></svg></span>
           <span class="bigv num">−913</span><span class="cap2">kWh de solde net<br>2025-26 (surplus)</span>
         </div>
         <div class="card center car">
+          <div class="ctitle">Recharges</div>
           <span class="actor car"><svg class="i"><use href="#i-car"/></svg></span>
           <span class="bigv num">—</span><span class="cap2">kWh rechargés<br>dès février 2027</span>
         </div>
@@ -495,18 +507,22 @@
           <div class="info">Prix variable : l'énergie suit chaque mois l'indice BELPEX. Changement de fournisseur possible à tout moment, sans frais (préavis d'un mois).</div>
         </div>
         <div class="card center sun">
+          <div class="ctitle">Prix de l'énergie</div>
           <span class="actor sun"><svg class="i"><use href="#i-sun"/></svg></span>
           <span class="bigv num">15,96</span><span class="cap2">c€/kWh d'énergie<br>0,1097 × 114,46 + 2,5 (+TVA)</span>
         </div>
         <div class="card center piggy">
+          <div class="ctitle">Redevance fixe</div>
           <span class="actor piggy"><svg class="i"><use href="#i-piggy"/></svg></span>
           <span class="bigv num">90 €</span><span class="cap2">redevance fixe par an<br>non comptée dans les recharges</span>
         </div>
         <div class="card center grid">
+          <div class="ctitle">Réseau et taxes</div>
           <span class="actor grid"><svg class="i"><use href="#i-grid"/></svg></span>
           <span class="bigv num">23,18</span><span class="cap2">c€/kWh de réseau et taxes<br>identique chez tous les fournisseurs</span>
         </div>
         <div class="card center grid">
+          <div class="ctitle">Indice BELPEX</div>
           <span class="actor grid"><svg class="i"><use href="#i-cal"/></svg></span>
           <span class="bigv num">114,46</span><span class="cap2">€/MWh : indice d'octobre<br>(prix d'énergie de novembre)</span>
         </div>

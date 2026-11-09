@@ -121,7 +121,7 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
 
 - ✅ **D23 Maquette v1** (`docs/maquettes/maquette-v1.html`) : 4 onglets Accueil · Recharges · Historique · Contrat,
   même coque que HMT, **uniquement des cartes indépendantes** (pas de schéma de flux, retiré à la demande de
-  l'utilisateur), chacune avec une ligne « i » qui explique comment lire le chiffre.
+  l'utilisateur), **chacune avec un titre** et une ligne « i » qui explique comment lire le chiffre.
   - Accueil : six anneaux « à virer », « production vs l'an passé », « rechargé », « maison », « réseau » (solde,
     prélevé / injecté) et « batterie » (affichée en attente jusqu'à son installation, après 2030) ; jauge-batterie du surplus ; **prix du kWh en anneau** (100 %) avec le prix de chaque partie (énergie,
     distribution, transport, énergie verte, taxes) ; frise des échéances.
