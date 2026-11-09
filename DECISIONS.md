@@ -37,7 +37,7 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   Production très saisonnière : 86 kWh en janvier, 1 136 kWh en juillet. Le rapport prévoit des colonnes réseau,
   consommation et batterie, vides aujourd'hui.
 - 🔎 **Installation électrique** (dépôt SchemaElectric) : réseau **3 × 230 V sans neutre**, schéma TT ; branchement
-  **25 A triphasé = 10 kVA** (passage à 40 A demandé à ORES) ; compteur électromécanique de 2000.
+  **25 A triphasé = 10 kVA**, renforcement à **32 A triphasé ≈ 12,7 kVA** demandé (40 A abandonné : trop de travaux) ; compteur électromécanique de 2000.
   Gros consommateurs : taque induction (C25 3P), 2 unités extérieures de climatisation, prise triphasée X1.
 - 🔎 **Photovoltaïque** : 19 panneaux Canadian Solar 395 Wc = **7,5 kWc**, mis en service le 20/09/2023 ; production
   ≈ 920 à 960 kWh/kWc (normal pour la Belgique). Onduleur **monophasé** ZCS Azzurro 5 kW (2e onduleur, référence
