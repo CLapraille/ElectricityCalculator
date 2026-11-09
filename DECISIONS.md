@@ -36,9 +36,14 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   sur la période de régularisation. Consommation = 7 275 − 913 ≈ **6 360 kWh sur 378 jours, ≈ 6 150 kWh/an**.
   Production très saisonnière : 86 kWh en janvier, 1 136 kWh en juillet. Le rapport prévoit des colonnes réseau,
   consommation et batterie, vides aujourd'hui.
-- 🔎 **Onduleur** : ZCS Azzurro 5 kW (modèle exact à lire sur l'étiquette : hybride `HYD` ou non). Les 5,5 kWe du tarif
-  prosumer correspondent sans doute à sa puissance apparente maximale (5,5 kVA). ≈ 7 000 kWh/an pour 5 kW AC :
-  panneaux probablement surdimensionnés (≈ 7 kWc), avec écrêtage à 5 kW les jours d'été.
+- 🔎 **Installation électrique** (dépôt SchemaElectric) : réseau **3 × 230 V sans neutre**, schéma TT ; branchement
+  **25 A triphasé = 10 kVA** (passage à 40 A demandé à ORES) ; compteur électromécanique de 2000.
+  Gros consommateurs : taque induction (C25 3P), 2 unités extérieures de climatisation, prise triphasée X1.
+- 🔎 **Photovoltaïque** : 19 panneaux Canadian Solar 395 Wc = **7,5 kWc**, mis en service le 20/09/2023 ; production
+  ≈ 920 à 960 kWh/kWc (normal pour la Belgique). Onduleur **monophasé** ZCS Azzurro 5 kW (2e onduleur, référence
+  exacte à lire sur l'étiquette), injection max **5,5 kVA** = base du tarif prosumer. Le 1er onduleur était un
+  1PH 5000TLM-V3 (non hybride) ; les deux numéros de série commencent pareil, l'actuel est donc probablement de la
+  même famille, sans entrée batterie. Pas de batterie, pas de compteur d'énergie relié à l'onduleur.
 - 🔎 **Coût marginal d'un kWh** prélevé, indice 114,46 : ≈ **39,1 c€ TVAC** (énergie 15,96 + verte 3,30 + distribution
   11,98 + transport 2,74 + accise 4,88 + cotisation 0,20 + raccordement 0,075). Recharges : 20 kWh = 7,83 € ;
   40 kWh = 15,65 € ; 60 kWh = 23,48 €. +10 €/MWh d'indice = +1,16 c€/kWh.
