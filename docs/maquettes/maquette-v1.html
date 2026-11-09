@@ -184,6 +184,10 @@
   .ring .tick { stroke: var(--fg); stroke-width: 16; }
   .ringtxt { position: absolute; top: 14px; left: 0; right: 0; aspect-ratio: 1; max-width: 150px; margin: 0 auto; display: grid; place-content: center; justify-items: center; gap: 2px; font-size: 0.78rem; color: var(--muted); }
   .ringtxt b { font: 700 1.25rem/1.1 var(--display); color: var(--c); }
+  .ring .val.soft { opacity: 0.4; }
+  .ring .track.dashed { stroke: var(--battery); stroke-width: 3; stroke-dasharray: 6 6; opacity: 0.6; }
+  .ringcard.ghost .ringtxt b { color: var(--muted); }
+  .sw.soft { opacity: 0.4; }
   .ringcap { font-size: 0.8rem; color: var(--muted); text-align: center; }
 
   .gaugehead { display: flex; align-items: center; gap: 10px; }
@@ -315,13 +319,15 @@
           <div class="ringtxt"><span class="actor sm house"><svg class="i"><use href="#i-house"/></svg></span><b class="num">161 kWh</b><span>maison</span></div>
           <div class="cap2">sans la voiture · sur ≈ 520 kWh par mois en moyenne</div>
         </div>
-        <div class="card grid wide">
-          <div class="cardhead"><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><span class="ttl">Réseau</span><b class="num" style="color:var(--grid)">+144 kWh</b></div>
-          <div class="twobars">
-            <div class="out"><span>prélevé</span><i style="width:100%"></i><span>210</span></div>
-            <div class="in"><span>injecté</span><i style="width:31%"></i><span>66</span></div>
-          </div>
-          <div class="info">Compteur qui tourne à l'envers : seul le solde de l'année est facturé.</div>
+        <div class="card ringcard grid">
+          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="237 400"/><circle cx="60" cy="60" r="50" class="val soft" stroke-dasharray="70 400" stroke-dashoffset="-242"/></svg>
+          <div class="ringtxt"><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><b class="num">+144 kWh</b><span>solde réseau</span></div>
+          <div class="cap2"><span class="sw" style="--c:var(--grid)"></span> 210 prélevés · <span class="sw soft" style="--c:var(--grid)"></span> 66 injectés<br>facturé : le solde de l'année</div>
+        </div>
+        <div class="card ringcard battery ghost">
+          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track dashed"/></svg>
+          <div class="ringtxt"><span class="actor sm battery"><svg class="i"><use href="#i-battery"/></svg></span><b class="num">— %</b><span>batterie</span></div>
+          <div class="cap2">pas encore installée<br>prévue après 2030</div>
         </div>
         <div class="card sun wide">
           <div class="cardhead"><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><span class="ttl">Recharges encore « gratuites »</span><b class="num">≈ 824 kWh</b></div>
