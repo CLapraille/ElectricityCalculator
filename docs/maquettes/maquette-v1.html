@@ -199,6 +199,65 @@
   .timeline li::before { content: ''; position: absolute; left: -25px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); }
   .timeline li.far::before { border-style: dashed; border-color: var(--muted); }
   .timeline b { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+  /* v1.2 : cartes indépendantes partout. */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cards .wide { grid-column: 1 / -1; }
+  @media (min-width: 700px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+  .cap2 { font-size: 0.78rem; color: var(--muted); text-align: center; line-height: 1.3; }
+  .info { display: flex; gap: 8px; align-items: flex-start; font-size: 0.8rem; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 8px; margin-top: 2px; }
+  .info::before { content: 'i'; flex: none; display: grid; place-items: center; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--muted); font: 700 10px/1 var(--body); margin-top: 1px; }
+  .cardhead { display: flex; align-items: center; gap: 10px; }
+  .cardhead .ttl { font-weight: 700; flex: 1; min-width: 0; }
+  .cardhead b { font: 700 1.15rem var(--display); white-space: nowrap; }
+  .twobars { display: grid; gap: 8px; width: 100%; font-size: 0.85rem; }
+  .twobars div { display: grid; grid-template-columns: 64px 1fr 48px; gap: 6px; align-items: center; font-size: 0.76rem; }
+  .twobars i { display: block; height: 10px; border-radius: 5px; background: var(--c); }
+  .twobars .in i { opacity: 0.45; }
+  .twobars span:last-child { text-align: right; font-family: var(--mono); }
+  .bigv { font: 700 1.5rem/1 var(--display); color: var(--c); }
+  .center { display: grid; justify-items: center; gap: 6px; text-align: center; }
+
+  .donutwrap { display: grid; grid-template-columns: 1fr; justify-items: center; gap: 14px; }
+  @media (min-width: 560px) { .donutwrap { grid-template-columns: 160px 1fr; align-items: center; } }
+  .donut { width: 150px; height: 150px; position: relative; }
+  .donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .donut circle { fill: none; stroke-width: 18; }
+  .donut .mid { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+  .donut .mid b { font: 700 1.5rem/1 var(--display); }
+  .donut .mid span { font-size: 0.75rem; color: var(--muted); }
+  .parts { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 0.86rem; width: 100%; }
+  .parts li { display: grid; grid-template-columns: 12px 1fr auto auto; gap: 8px; align-items: center; }
+  .parts li i { width: 12px; height: 12px; border-radius: 3px; background: var(--c); }
+  .parts li .p { color: var(--muted); font-family: var(--mono); font-size: 0.78rem; width: 3.2em; text-align: right; }
+  .parts li .c { font-family: var(--mono); text-align: right; }
+  .parts li small { grid-column: 2 / -1; color: var(--muted); font-size: 0.74rem; margin-top: -4px; }
+
+  .days { display: grid; grid-template-columns: repeat(30, 1fr); gap: 2px; align-items: end; height: 90px; border-bottom: 1px solid var(--line); }
+  .days span { background: var(--car); border-radius: 2px 2px 0 0; min-height: 0; }
+  .days span.today { outline: 1px dashed var(--muted); outline-offset: 1px; }
+  .dayaxis { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--muted); }
+  .kbar { height: 6px; border-radius: 3px; background: var(--car-bg); grid-column: 2 / -1; }
+  .kbar i { display: block; height: 100%; border-radius: 3px; background: var(--car); }
+  .stackbar { display: flex; height: 18px; border-radius: 6px; overflow: hidden; gap: 2px; }
+  .stackbar span { background: var(--c); }
+
+  .cols { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; align-items: end; height: 150px; border-bottom: 1px solid var(--line); }
+  .cols div { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; gap: 3px; }
+  .cols span { width: 100%; background: var(--sun); border-radius: 4px 4px 0 0; }
+  .cols em { font: 500 0.62rem var(--mono); color: var(--muted); font-style: normal; }
+  .colaxis { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; font-size: 0.68rem; color: var(--muted); text-align: center; }
+
+  .period { position: relative; height: 12px; border-radius: 6px; background: var(--surface-2); }
+  .period i { position: absolute; inset: 0 auto 0 0; border-radius: 6px; background: var(--accent); }
+  .periodaxis { display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--muted); }
+  .offers { display: grid; gap: 12px; }
+  .offer { display: grid; gap: 4px; font-size: 0.86rem; }
+  .offer .name { display: flex; justify-content: space-between; gap: 8px; }
+  .offer .name b { font-weight: 700; }
+  .offer .b { display: grid; grid-template-columns: 1fr 64px; gap: 8px; align-items: center; font-family: var(--mono); font-size: 0.78rem; }
+  .offer .b i { display: block; height: 10px; border-radius: 5px; background: var(--grid); }
+  .offer .b.first i { background: var(--grid); opacity: 0.4; }
+  .offer.me .b i { background: var(--accent); }
 </style>
 </head>
 <body>
@@ -234,242 +293,254 @@
   <main>
     <!-- ============ ACCUEIL ============ -->
     <section class="screen on" id="home">
-      <!-- Flux d'énergie du mois : qui produit, qui consomme, où ça va. -->
-      <div class="card flowcard">
-        <div class="flowhead"><span class="ttl">Novembre, au 9</span><span class="example">exemple</span></div>
-        <svg class="flow" viewBox="0 0 360 330" role="img" aria-label="Flux d'énergie de novembre : 106 kWh produits, 40 consommés directement, 66 injectés, 210 prélevés, 89 rechargés dans la voiture. Solde réseau : +144.">
-          <g class="links">
-            <path class="lk sunc" d="M180 78 V 140" /><text class="lv" x="190" y="114">40</text>
-            <path class="lk sunc" d="M150 66 Q 70 70 62 140" /><text class="lv" x="70" y="88">66</text>
-            <path class="lk gridc" d="M90 176 H 140" /><text class="lv" x="104" y="168">210</text>
-            <path class="lk carc" d="M220 176 H 270" /><text class="lv" x="236" y="168">89</text>
-            <path class="lk off" d="M180 214 V 252" />
-          </g>
-          <g class="node sun"><circle cx="180" cy="46" r="32"/><use href="#i-sun" x="166" y="26" width="28" height="28"/><text x="180" y="68" class="nv">106</text></g>
-          <g class="node grid"><circle cx="58" cy="176" r="32"/><use href="#i-grid" x="44" y="156" width="28" height="28"/><text x="58" y="198" class="nv">+144</text></g>
-          <g class="node house"><circle cx="180" cy="176" r="38"/><use href="#i-house" x="164" y="152" width="32" height="32"/><text x="180" y="202" class="nv">161</text></g>
-          <g class="node car"><circle cx="302" cy="176" r="32"/><use href="#i-car" x="288" y="156" width="28" height="28"/><text x="302" y="198" class="nv">89</text></g>
-          <g class="node battery ghost"><circle cx="180" cy="284" r="28"/><use href="#i-battery" x="167" y="268" width="26" height="26"/><text x="180" y="304" class="nv">2031</text></g>
-          <text class="cap" x="180" y="10">Soleil</text>
-          <text class="cap" x="58" y="226">Réseau</text>
-          <text class="cap" x="180" y="232">Maison</text>
-          <text class="cap" x="302" y="226">Voiture</text>
-        </svg>
-        <div class="legend">
-          <span><i class="sw" style="--c:var(--sun)"></i>solaire</span>
-          <span><i class="sw" style="--c:var(--grid)"></i>réseau</span>
-          <span><i class="sw" style="--c:var(--car)"></i>recharge</span>
-          <span>kWh depuis le 1er</span>
-        </div>
-      </div>
-
-      <!-- Deux anneaux : l'argent mis de côté et la production comparée à l'an passé. -->
-      <div class="rings">
+      <div class="flowhead"><span class="ttl">Novembre, au 9</span><span class="example">exemple</span></div>
+      <div class="cards">
         <div class="card ringcard piggy">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true">
-            <circle cx="60" cy="60" r="50" class="track" /><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.5 400" />
-          </svg>
+          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.5 400"/></svg>
           <div class="ringtxt"><span class="actor sm piggy"><svg class="i"><use href="#i-piggy"/></svg></span><b class="num">34,98 €</b><span>à virer</span></div>
-          <div class="ringcap">≈ 163 € attendus sur le mois</div>
+          <div class="cap2">sur ≈ 163 € attendus ce mois</div>
         </div>
         <div class="card ringcard sun">
-          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true">
-            <circle cx="60" cy="60" r="50" class="track" /><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="162.1 400" />
-            <circle cx="60" cy="60" r="50" class="tick" stroke-dasharray="2.5 400" stroke-dashoffset="-143.6" />
-          </svg>
-          <div class="ringtxt"><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><b class="num">+12 %</b><span>vs 2025</span></div>
-          <div class="ringcap">106 / 206 kWh de nov. 2025</div>
+          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="162.1 400"/><circle cx="60" cy="60" r="50" class="tick" stroke-dasharray="2.5 400" stroke-dashoffset="-143.6"/></svg>
+          <div class="ringtxt"><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><b class="num">106 kWh</b><span>produits</span></div>
+          <div class="cap2"><span class="delta up">+12 %</span> vs 2025 à date<br>trait = 2025 au 9 nov.</div>
         </div>
-      </div>
-
-      <!-- Surplus solaire : jauge en forme de batterie, qui se vide au fil des recharges. -->
-      <div class="card">
-        <div class="gaugehead"><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><span class="ttl">Recharges encore « gratuites »</span><b class="num">≈ 824 kWh</b></div>
-        <div class="gauge"><span style="width:90%"></span></div>
-        <div class="note">Surplus estimé de l'année : 913 kWh · 89 déjà utilisés par la voiture</div>
-      </div>
-
-      <!-- Prix du kWh : une ligne, la décomposition en barre empilée. -->
-      <div class="card">
-        <div class="gaugehead"><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><span class="ttl">Un kWh rechargé</span><b class="num">39,1 c€</b></div>
-        <div class="stack" role="img" aria-label="Énergie 16 c€, réseau 14,7 c€, taxes et contributions 8,5 c€">
-          <span style="flex:15.96;background:var(--sun)">énergie</span>
-          <span style="flex:14.72;background:var(--house)">réseau</span>
-          <span style="flex:8.46;background:var(--grid)">taxes</span>
+        <div class="card ringcard car">
+          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.3 400"/></svg>
+          <div class="ringtxt"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><b class="num">89 kWh</b><span>rechargés</span></div>
+          <div class="cap2">3 recharges · sur ≈ 417 kWh par mois en moyenne</div>
         </div>
-        <div class="note">Indice d'octobre 114,46 €/MWh · seule la part « énergie » varie chaque mois</div>
-      </div>
-
-      <!-- Échéances sur une frise. -->
-      <div class="card">
-        <div class="gaugehead"><span class="actor sm grid"><svg class="i"><use href="#i-cal"/></svg></span><span class="ttl">À venir</span></div>
-        <ol class="timeline">
-          <li><b class="num">fév. 2027</b>Compteur communicant, borne, voiture</li>
-          <li><b class="num">août 2027</b>Nouvelle carte tarifaire</li>
-          <li><b class="num">sept. 2027</b>Régularisation : bilan du compte séparé</li>
-          <li><b class="num">31/10/2027</b>Fin du contrat myComfort</li>
-          <li class="far"><b class="num">31/12/2030</b>Fin de la compensation</li>
-        </ol>
+        <div class="card ringcard house">
+          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="97.4 400"/></svg>
+          <div class="ringtxt"><span class="actor sm house"><svg class="i"><use href="#i-house"/></svg></span><b class="num">161 kWh</b><span>maison</span></div>
+          <div class="cap2">sans la voiture · sur ≈ 520 kWh par mois en moyenne</div>
+        </div>
+        <div class="card grid wide">
+          <div class="cardhead"><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><span class="ttl">Réseau</span><b class="num" style="color:var(--grid)">+144 kWh</b></div>
+          <div class="twobars">
+            <div class="out"><span>prélevé</span><i style="width:100%"></i><span>210</span></div>
+            <div class="in"><span>injecté</span><i style="width:31%"></i><span>66</span></div>
+          </div>
+          <div class="info">Compteur qui tourne à l'envers : seul le solde de l'année est facturé.</div>
+        </div>
+        <div class="card sun wide">
+          <div class="cardhead"><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><span class="ttl">Recharges encore « gratuites »</span><b class="num">≈ 824 kWh</b></div>
+          <div class="gauge"><span style="width:90%"></span></div>
+          <div class="note">Surplus solaire estimé de l'année : 913 kWh · 89 déjà utilisés par la voiture</div>
+          <div class="info">Chaque recharge est provisionnée au prix plein ; la part couverte par ce surplus est rendue à la régularisation.</div>
+        </div>
+        <div class="card grid wide">
+          <div class="cardhead"><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><span class="ttl">Un kWh rechargé</span><b class="num">39,14 c€</b></div>
+          <div class="donutwrap">
+            <div class="donut">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="40" stroke="var(--surface-2)"/>
+                <circle cx="50" cy="50" r="40" stroke="var(--sun)" stroke-dasharray="101.5 400" stroke-dashoffset="0"/>
+                <circle cx="50" cy="50" r="40" stroke="var(--house)" stroke-dasharray="75.9 400" stroke-dashoffset="-102.5"/>
+                <circle cx="50" cy="50" r="40" stroke="var(--battery)" stroke-dasharray="16.6 400" stroke-dashoffset="-179.4"/>
+                <circle cx="50" cy="50" r="40" stroke="var(--car)" stroke-dasharray="20.1 400" stroke-dashoffset="-197.0"/>
+                <circle cx="50" cy="50" r="40" stroke="var(--grid)" stroke-dasharray="32.2 400" stroke-dashoffset="-218.1"/>
+              </svg>
+              <div class="mid"><b class="num">39,14</b><span>c€ / kWh TVAC</span></div>
+            </div>
+            <ul class="parts">
+              <li style="--c:var(--sun)"><i></i><span>Énergie</span><span class="p">41 %</span><span class="c">15,96</span><small>TotalEnergies · seule part qui varie chaque mois</small></li>
+              <li style="--c:var(--house)"><i></i><span>Distribution</span><span class="p">31 %</span><span class="c">11,98</span><small>ORES Luxembourg</small></li>
+              <li style="--c:var(--battery)"><i></i><span>Transport</span><span class="p">7 %</span><span class="c">2,74</span><small>Elia</small></li>
+              <li style="--c:var(--car)"><i></i><span>Énergie verte</span><span class="p">8 %</span><span class="c">3,30</span><small>Contribution wallonne</small></li>
+              <li style="--c:var(--grid)"><i></i><span>Taxes</span><span class="p">13 %</span><span class="c">5,16</span><small>Accise 4,88 · cotisation 0,20 · raccordement 0,08</small></li>
+            </ul>
+          </div>
+          <div class="info">c€ par kWh, TVA 6 % comprise. Énergie calculée avec l'indice d'octobre (114,46 €/MWh) ; +10 €/MWh d'indice = +1,16 c€.</div>
+        </div>
+        <div class="card wide">
+          <div class="cardhead"><span class="actor sm grid"><svg class="i"><use href="#i-cal"/></svg></span><span class="ttl">À venir</span></div>
+          <ol class="timeline">
+            <li><b class="num">fév. 2027</b>Compteur communicant, borne, voiture</li>
+            <li><b class="num">août 2027</b>Nouvelle carte tarifaire</li>
+            <li><b class="num">sept. 2027</b>Régularisation : bilan du compte séparé</li>
+            <li><b class="num">31/10/2027</b>Fin du contrat myComfort</li>
+            <li class="far"><b class="num">31/12/2030</b>Fin de la compensation</li>
+          </ol>
+        </div>
       </div>
     </section>
 
     <!-- ============ RECHARGES ============ -->
     <section class="screen" id="charges">
-      <p class="lede">Chaque recharge mesurée par la borne, au prix plein. Le surplus solaire est rendu à la régularisation. <span class="example">exemple</span></p>
-      <div class="list">
-        <button class="row" type="button">
-          <span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span>
-          <span class="main">Dim. 9 novembre, 22:10</span>
-          <span class="amt num">7,75 €<small>19,8 kWh</small></span>
-          <span class="sub">Zaptec · 4 h 50 · <span class="chip warn">à virer</span></span>
-        </button>
-        <button class="row" type="button">
-          <span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span>
-          <span class="main">Jeu. 6 novembre, 21:35</span>
-          <span class="amt num">16,12 €<small>41,2 kWh</small></span>
-          <span class="sub">Zaptec · 9 h 15 · <span class="chip warn">à virer</span></span>
-        </button>
-        <button class="row" type="button">
-          <span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span>
-          <span class="main">Lun. 3 novembre, 23:02</span>
-          <span class="amt num">11,11 €<small>28,4 kWh</small></span>
-          <span class="sub">Zaptec · 6 h 40 · <span class="chip warn">à virer</span></span>
-        </button>
-      </div>
-
-      <h2 class="section">Détail d'une recharge de 20 kWh</h2>
-      <div class="card">
-        <div class="breakdown">
-          <span class="k">Énergie (0,1097 × 114,46 + 2,5)</span><span>3,01 €</span>
-          <span class="k">Contribution énergie verte</span><span>0,62 €</span>
-          <span class="k">Distribution ORES Luxembourg</span><span>2,26 €</span>
-          <span class="k">Transport Elia</span><span>0,52 €</span>
-          <span class="k">Accise fédérale</span><span>0,92 €</span>
-          <span class="k">Cotisation sur l'énergie</span><span>0,04 €</span>
-          <span class="k">Redevance de raccordement (TVA 0 %)</span><span>0,02 €</span>
-          <span class="k">TVA 6 %</span><span>0,44 €</span>
-          <span class="tot">Total</span><span class="tot">7,83 €</span>
+      <div class="flowhead"><span class="ttl">Novembre</span><span class="example">exemple</span></div>
+      <div class="cards">
+        <div class="card ringcard car">
+          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="67.3 400"/></svg>
+          <div class="ringtxt"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><b class="num">89,4 kWh</b><span>3 recharges</span></div>
+          <div class="cap2">moyenne 29,8 kWh par recharge</div>
         </div>
-        <p class="note">Calcul réel du domaine (carte myComfort août 2026, indice d'octobre 2026).</p>
+        <div class="card ringcard piggy">
+          <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/></svg>
+          <div class="ringtxt"><span class="actor sm piggy"><svg class="i"><use href="#i-piggy"/></svg></span><b class="num">0 / 34,98 €</b><span>virés</span></div>
+          <div class="cap2">3 recharges à virer</div>
+        </div>
+        <div class="card car wide">
+          <div class="cardhead"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><span class="ttl">kWh par jour</span></div>
+          <div class="days" id="days"></div>
+          <div class="dayaxis"><span>1</span><span>10</span><span>20</span><span>30</span></div>
+        </div>
+        <div class="list wide">
+          <button class="row" type="button">
+            <span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span>
+            <span class="main">Dim. 9 nov., 22:10</span>
+            <span class="amt num">7,75 €<small>19,8 kWh</small></span>
+            <span class="kbar"><i style="width:48%"></i></span>
+            <span class="sub">4 h 50 · <span class="chip warn">à virer</span></span>
+          </button>
+          <button class="row" type="button">
+            <span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span>
+            <span class="main">Jeu. 6 nov., 21:35</span>
+            <span class="amt num">16,12 €<small>41,2 kWh</small></span>
+            <span class="kbar"><i style="width:100%"></i></span>
+            <span class="sub">9 h 15 · <span class="chip warn">à virer</span></span>
+          </button>
+          <button class="row" type="button">
+            <span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span>
+            <span class="main">Lun. 3 nov., 23:02</span>
+            <span class="amt num">11,11 €<small>28,4 kWh</small></span>
+            <span class="kbar"><i style="width:69%"></i></span>
+            <span class="sub">6 h 40 · <span class="chip warn">à virer</span></span>
+          </button>
+        </div>
+        <div class="card grid wide">
+          <div class="cardhead"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><span class="ttl">Recharge de 20 kWh</span><b class="num">7,83 €</b></div>
+          <div class="stackbar" aria-hidden="true">
+            <span style="flex:301;--c:var(--sun)"></span><span style="flex:226;--c:var(--house)"></span><span style="flex:52;--c:var(--battery)"></span><span style="flex:62;--c:var(--car)"></span><span style="flex:142;--c:var(--grid)"></span>
+          </div>
+          <ul class="parts">
+            <li style="--c:var(--sun)"><i></i><span>Énergie</span><span class="p"></span><span class="c">3,01 €</span></li>
+            <li style="--c:var(--house)"><i></i><span>Distribution</span><span class="p"></span><span class="c">2,26 €</span></li>
+            <li style="--c:var(--battery)"><i></i><span>Transport</span><span class="p"></span><span class="c">0,52 €</span></li>
+            <li style="--c:var(--car)"><i></i><span>Énergie verte</span><span class="p"></span><span class="c">0,62 €</span></li>
+            <li style="--c:var(--grid)"><i></i><span>Taxes et TVA</span><span class="p"></span><span class="c">1,42 €</span><small>accise 0,92 · cotisation 0,04 · raccordement 0,02 · TVA 0,44</small></li>
+          </ul>
+          <div class="info">kWh mesurés par la borne : les pertes de charge de la voiture sont déjà comprises.</div>
+        </div>
       </div>
     </section>
 
     <!-- ============ HISTORIQUE ============ -->
     <section class="screen" id="history">
-      <div class="card prog sun">
-        <div class="head">
-          <span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span>
-          <span class="ttl">Production — novembre, au 9</span>
-          <span class="delta up">+12 %</span>
+      <div class="cards">
+        <div class="card prog sun wide">
+          <div class="head">
+            <span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span>
+            <span class="ttl">Production — novembre, au 9</span>
+            <span class="delta up">+12 %</span>
+          </div>
+          <div class="bar-row"><span class="yr num">2025</span><div class="bar"><span class="fill past" style="width:46.1%"></span></div><span class="num">95 / 206</span></div>
+          <div class="bar-row"><span class="yr num">2026</span><div class="bar"><span class="fill" style="width:51.6%"></span><span class="mark" style="left:46.1%"></span></div><span class="num">106 <span class="example">ex.</span></span></div>
+          <div class="info">Barre entière = novembre 2025 complet. Trait = 2025 au même jour. Mise à jour chaque jour.</div>
         </div>
-        <div class="bar-row">
-          <span class="yr num">2025</span>
-          <div class="bar"><span class="fill past" style="width:46.1%"></span></div>
-          <span class="num">95 / 206 kWh</span>
+        <div class="card center sun">
+          <span class="actor sun"><svg class="i"><use href="#i-sun"/></svg></span>
+          <span class="bigv num">7 235</span><span class="cap2">kWh produits en 2025<br><span class="delta up">+10 %</span> vs 2024</span>
         </div>
-        <div class="bar-row">
-          <span class="yr num">2026</span>
-          <div class="bar"><span class="fill" style="width:51.6%"></span><span class="mark" style="left:46.1%" title="2025 au même jour"></span></div>
-          <span class="num">106 kWh <span class="example">exemple</span></span>
+        <div class="card center house">
+          <span class="actor house"><svg class="i"><use href="#i-house"/></svg></span>
+          <span class="bigv num">≈ 6 150</span><span class="cap2">kWh consommés par an<br>(régularisation 2025-26)</span>
         </div>
-        <div class="foot">Longueur de la barre = novembre 2025 complet (206 kWh). Trait = 2025 au 9 novembre. Mise à jour chaque jour.</div>
-      </div>
-
-      <div class="card prog car">
-        <div class="head">
-          <span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span>
-          <span class="ttl">Recharges — novembre</span>
+        <div class="card center grid">
+          <span class="actor grid"><svg class="i"><use href="#i-grid"/></svg></span>
+          <span class="bigv num">−913</span><span class="cap2">kWh de solde net<br>2025-26 (surplus)</span>
         </div>
-        <div class="foot">Comparaison disponible à partir de la 2e année de recharge (février 2028).</div>
-      </div>
-
-      <h2 class="section">Par année</h2>
-      <div class="card"><div class="scroll">
-        <table class="t">
-          <thead><tr>
-            <th>Année</th>
-            <th><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><br>Production</th>
-            <th><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><br>Solde net</th>
-            <th><span class="actor sm house"><svg class="i"><use href="#i-house"/></svg></span><br>Maison</th>
-            <th><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><br>Voiture</th>
-          </tr></thead>
-          <tbody>
-            <tr><td>2024</td><td>6 592</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-            <tr><td>2025</td><td>7 235</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-            <tr><td>2026 <span class="note">au 28/10</span></td><td>6 849</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-            <tr><td>Régul. 2025-26</td><td>≈ 7 275</td><td>−913</td><td>≈ 6 360</td><td>0</td></tr>
-          </tbody>
-        </table></div>
-        <p class="note">kWh. Solde net = prélèvement − injection (factures). Mois par mois dès le compteur communicant.</p>
-      </div>
-
-      <h2 class="section">Production par mois</h2>
-      <div class="card">
-        <div class="months num" id="months"></div>
-        <p class="note">Rapports de l'onduleur, septembre 2025 → août 2026 (7 009 kWh).</p>
-      </div>
-
-      <h2 class="section">Bilan mensuel</h2>
-      <div class="card"><div class="scroll">
-        <table class="t">
-          <thead><tr>
-            <th>Mois</th>
-            <th><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><br>Produit</th>
-            <th><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><br>Prélevé</th>
-            <th><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><br>Injecté</th>
-            <th><span class="actor sm house"><svg class="i"><use href="#i-house"/></svg></span><br>Maison</th>
-            <th><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><br>Voiture</th>
-            <th><span class="actor sm piggy"><svg class="i"><use href="#i-piggy"/></svg></span><br>Provision</th>
-          </tr></thead>
-          <tbody id="monthly"></tbody>
-        </table></div>
-        <p class="note">Prélevé, injecté et maison : à partir de février 2027 (compteur communicant). Voiture et provision : dès la première recharge.</p>
+        <div class="card center car">
+          <span class="actor car"><svg class="i"><use href="#i-car"/></svg></span>
+          <span class="bigv num">—</span><span class="cap2">kWh rechargés<br>dès février 2027</span>
+        </div>
+        <div class="card sun wide">
+          <div class="cardhead"><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><span class="ttl">Production par mois</span><b class="num">7 009 kWh</b></div>
+          <div class="cols" id="cols"></div>
+          <div class="colaxis" id="colaxis"></div>
+          <div class="info">Septembre 2025 → août 2026, rapports de l'onduleur. De 86 kWh en janvier à 1 136 kWh en juillet.</div>
+        </div>
+        <div class="card wide">
+          <div class="cardhead"><span class="actor sm house"><svg class="i"><use href="#i-house"/></svg></span><span class="ttl">Bilan mensuel</span></div>
+          <div class="scroll"><table class="t">
+            <thead><tr>
+              <th>Mois</th>
+              <th><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><br>Produit</th>
+              <th><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><br>Prélevé</th>
+              <th><span class="actor sm grid"><svg class="i"><use href="#i-grid"/></svg></span><br>Injecté</th>
+              <th><span class="actor sm house"><svg class="i"><use href="#i-house"/></svg></span><br>Maison</th>
+              <th><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><br>Voiture</th>
+              <th><span class="actor sm piggy"><svg class="i"><use href="#i-piggy"/></svg></span><br>Provision</th>
+            </tr></thead>
+            <tbody id="monthly"></tbody>
+          </table></div>
+          <div class="info">Prélevé, injecté et maison : dès le compteur communicant (février 2027). Maison = produit + prélevé − injecté − voiture.</div>
+        </div>
       </div>
     </section>
 
     <!-- ============ CONTRAT ============ -->
     <section class="screen" id="contract">
-      <div class="card">
-        <div style="display:flex;gap:12px;align-items:center">
-          <span class="actor grid"><svg class="i"><use href="#i-doc"/></svg></span>
-          <div><div style="font-weight:700">TotalEnergies myComfort Variable</div><div class="note">01/11/2026 → 31/10/2027 · ORES Luxembourg · carte d'août 2026</div></div>
+      <div class="cards">
+        <div class="card wide">
+          <div class="cardhead"><span class="actor sm grid"><svg class="i"><use href="#i-doc"/></svg></span><span class="ttl">TotalEnergies myComfort Variable</span></div>
+          <div class="period"><i style="width:2.5%"></i></div>
+          <div class="periodaxis"><span>01/11/2026</span><span>aujourd'hui : 9 jours sur 365</span><span>31/10/2027</span></div>
+          <div class="info">Prix variable : l'énergie suit chaque mois l'indice BELPEX. Changement de fournisseur possible à tout moment, sans frais (préavis d'un mois).</div>
         </div>
-        <div class="breakdown">
-          <span class="k">Énergie (compteur simple)</span><span>0,1097 × BELPEX_M_RLP + 2,5 c€ HTVA</span>
-          <span class="k">Réseau et taxes</span><span>≈ 23,2 c€/kWh TVAC</span>
-          <span class="k">Prix d'un kWh rechargé</span><span>39,1 c€ TVAC</span>
+        <div class="card center sun">
+          <span class="actor sun"><svg class="i"><use href="#i-sun"/></svg></span>
+          <span class="bigv num">15,96</span><span class="cap2">c€/kWh d'énergie<br>0,1097 × 114,46 + 2,5 (+TVA)</span>
         </div>
-      </div>
-
-      <h2 class="section">Comparaison du 09/11/2026</h2>
-      <div class="card"><div class="scroll">
-        <table class="t">
-          <thead><tr><th>Offre</th><th>1re année</th><th>Récurrent</th></tr></thead>
-          <tbody>
-            <tr><td><b>TotalEnergies myComfort</b></td><td>977 €</td><td><b>977 €</b></td></tr>
-            <tr><td>Engie Easy Fixed</td><td>827 €</td><td>1 214 €</td></tr>
-            <tr><td>Engie Easy</td><td>893 €</td><td>1 256 €</td></tr>
-            <tr><td>Eneco Soleil &amp; Vent Fix One</td><td>1 026 €</td><td>1 317 €</td></tr>
-            <tr><td>Luminus ComfyFlex</td><td>920 €</td><td>1 322 €</td></tr>
-            <tr><td>Luminus Comfy</td><td>910 €</td><td>1 406 €</td></tr>
-          </tbody>
-        </table></div>
-        <p class="note">Part fournisseur seulement (réseau identique : 1 452,50 €), 4 843 kWh, prix bihoraires du comparateur. 1re année = avec la prime de bienvenue.</p>
+        <div class="card center piggy">
+          <span class="actor piggy"><svg class="i"><use href="#i-piggy"/></svg></span>
+          <span class="bigv num">90 €</span><span class="cap2">redevance fixe par an<br>non comptée dans les recharges</span>
+        </div>
+        <div class="card center grid">
+          <span class="actor grid"><svg class="i"><use href="#i-grid"/></svg></span>
+          <span class="bigv num">23,18</span><span class="cap2">c€/kWh de réseau et taxes<br>identique chez tous les fournisseurs</span>
+        </div>
+        <div class="card center grid">
+          <span class="actor grid"><svg class="i"><use href="#i-cal"/></svg></span>
+          <span class="bigv num">114,46</span><span class="cap2">€/MWh : indice d'octobre<br>(prix d'énergie de novembre)</span>
+        </div>
+        <div class="card wide">
+          <div class="cardhead"><span class="actor sm piggy"><svg class="i"><use href="#i-piggy"/></svg></span><span class="ttl">Comparaison du 09/11/2026</span></div>
+          <div class="offers" id="offers"></div>
+          <div class="legend"><span><i class="sw" style="--c:var(--accent)"></i>récurrent (sans prime)</span><span><i class="sw" style="--c:var(--grid);opacity:.4"></i>1re année (avec prime)</span></div>
+          <div class="info">Part fournisseur par an (énergie, contribution verte, redevance) pour 4 843 kWh. Le réseau et les taxes (1 452,50 €) sont identiques partout.</div>
+        </div>
       </div>
     </section>
   </main>
 </div>
 
 <script>
-  // Production mensuelle réelle (onduleur), 09/2025 → 08/2026.
-  const prod = [['sept. 2025',547.7],['oct. 2025',328.1],['nov. 2025',206.0],['déc. 2025',155.4],['janv. 2026',86.1],['févr. 2026',209.2],
-    ['mars 2026',670.6],['avr. 2026',917.6],['mai 2026',930.0],['juin 2026',980.8],['juil. 2026',1136.1],['août 2026',841.4]];
   const fmt = (n) => Math.round(n).toLocaleString('fr-BE');
-  const max = Math.max(...prod.map((p) => p[1]));
-  document.getElementById('months').innerHTML = prod.map(([m, v]) =>
-    `<div class="m"><span class="lbl">${m}</span><span class="track"><span style="width:${(v / max * 100).toFixed(1)}%"></span></span><span class="val">${fmt(v)} kWh</span></div>`).join('');
-  document.getElementById('monthly').innerHTML = prod.slice().reverse().map(([m, v]) =>
+  // Production mensuelle réelle (onduleur), 09/2025 → 08/2026.
+  const prod = [['S','sept. 2025',547.7],['O','oct. 2025',328.1],['N','nov. 2025',206.0],['D','déc. 2025',155.4],['J','janv. 2026',86.1],['F','févr. 2026',209.2],
+    ['M','mars 2026',670.6],['A','avr. 2026',917.6],['M','mai 2026',930.0],['J','juin 2026',980.8],['J','juil. 2026',1136.1],['A','août 2026',841.4]];
+  const max = Math.max(...prod.map((p) => p[2]));
+  document.getElementById('cols').innerHTML = prod.map(([, , v]) => `<div><em>${fmt(v)}</em><span style="height:${(v / max * 115).toFixed(0)}px"></span></div>`).join('');
+  document.getElementById('colaxis').innerHTML = prod.map(([l]) => `<span>${l}</span>`).join('');
+  document.getElementById('monthly').innerHTML = prod.slice().reverse().map(([, m, v]) =>
     `<tr><td>${m}</td><td>${fmt(v)}</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>`).join('');
+
+  // Recharges par jour (exemple).
+  const charges = { 3: 28.4, 6: 41.2, 9: 19.8 };
+  document.getElementById('days').innerHTML = Array.from({ length: 30 }, (_, i) =>
+    `<span class="${i + 1 === 9 ? 'today' : ''}" style="height:${((charges[i + 1] || 0) / 45 * 100).toFixed(0)}%"></span>`).join('');
+
+  // Comparaison (part fournisseur, €/an).
+  const offers = [['TotalEnergies myComfort', 977, 977, true], ['Engie Easy Fixed', 1214, 827], ['Engie Easy', 1256, 893],
+    ['Eneco Soleil & Vent Fix One', 1317, 1026], ['Luminus ComfyFlex', 1322, 920], ['Luminus Comfy', 1406, 910]];
+  const omax = 1406;
+  document.getElementById('offers').innerHTML = offers.map(([n, rec, first, me]) => `
+    <div class="offer${me ? ' me' : ''}">
+      <div class="name"><b>${n}</b>${me ? '<span class="chip good">ton contrat</span>' : ''}</div>
+      <div class="b"><i style="width:${(rec / omax * 100).toFixed(1)}%"></i><span>${fmt(rec)} €</span></div>
+      ${me ? '' : `<div class="b first"><i style="width:${(first / omax * 100).toFixed(1)}%"></i><span>${fmt(first)} €</span></div>`}
+    </div>`).join('');
 
   // Onglets.
   const tabs = document.querySelectorAll('nav.tabs button');
