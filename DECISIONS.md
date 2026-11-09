@@ -120,8 +120,10 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   fixe par intervenant, thème clair et sombre comme HMT.
 
 - ✅ **D23 Maquette v1** (`docs/maquettes/maquette-v1.html`) : 4 onglets Accueil · Recharges · Historique · Contrat,
-  même coque que HMT. Accueil = montant à mettre de côté, production du mois comparée à l'an passé, surplus restant,
-  prix du kWh, compte séparé, « À savoir » (alerte et échéances). Production réelle ; recharges et provisions = exemples.
+  même coque que HMT. **Accueil visuel** (demande de l'utilisateur) : schéma des flux d'énergie du mois (soleil, réseau,
+  maison, voiture, batterie en attente), anneau « à virer » et anneau « production vs l'an passé », jauge-batterie du
+  surplus restant, prix du kWh en barre empilée (énergie / réseau / taxes), frise des échéances.
+  Production réelle ; recharges, provisions et flux = exemples.
 
 ## Questions ouvertes
 
