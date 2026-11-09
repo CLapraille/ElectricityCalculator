@@ -47,6 +47,12 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
 - 🔎 **Coût marginal d'un kWh** prélevé, indice 114,46 : ≈ **39,1 c€ TVAC** (énergie 15,96 + verte 3,30 + distribution
   11,98 + transport 2,74 + accise 4,88 + cotisation 0,20 + raccordement 0,075). Recharges : 20 kWh = 7,83 € ;
   40 kWh = 15,65 € ; 60 kWh = 23,48 €. +10 €/MWh d'indice = +1,16 c€/kWh.
+- 🔎 **Superchargeur proche** (page Tesla fournie par l'utilisateur, prix non vérifié ici) : **0,24 €/kWh après 21 h**,
+  contre 39,1 c€/kWh au compteur à la maison. Ramené au kWh **entré dans la batterie** (≈ 10 % de pertes en charge AC à
+  la maison, facturation Tesla au kWh livré) : ≈ 43 c€ à la maison contre ≈ 24 c€ au Superchargeur, soit ≈ 19 c€ d'écart.
+  Sur les ≈ 4 087 kWh facturés par an : ≈ 1 600 € à la maison contre ≈ 880 € au Superchargeur (≈ 720 €/an d'écart),
+  avant détour, temps passé et énergie du trajet. Les ≈ 913 kWh couverts par le surplus solaire restent moins chers à
+  la maison (0 €) tant que dure la compensation.
 - 🔎 **Les prix Elia quart-horaires ne sont pas le prix facturé** : myComfort applique un prix unique par mois.
   Les appliquer tels quels à une recharge de nuit sous-provisionnerait d'environ 6 c€/kWh. Ils servent de
   **matière première** pour calculer l'indice (96 quarts d'heure → baseload du jour → indice pondéré RLP).
