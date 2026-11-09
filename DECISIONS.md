@@ -132,6 +132,13 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   - Contrat : période du contrat, formule, redevance, réseau et taxes, indice, comparaison des offres en barres.
   Production réelle ; recharges, provisions et flux du mois = exemples.
 
+- ✅ **D24 Suivi de la voiture** : pas d'API Tesla en v1 (inscription développeur, clé publique sur un domaine,
+  usage payant, réveil de la voiture). **Saisie manuelle mensuelle** depuis l'app Tesla : kilométrage de fin de mois et
+  total des Superchargeurs (kWh, €), avec dépôt possible des factures PDF plus tard. L'app en tire les km du mois, le
+  **coût au km** (maison + Superchargeurs), la consommation en kWh/100 km et la part de recharge à la maison.
+  **Superchargeurs : suivi seulement**, jamais provisionnés sur le compte séparé (ils ne passent pas par le compteur).
+  Maquette : carte « Voiture » sur l'accueil ; cartes « Superchargeurs » et « Saisie du mois » dans Recharges.
+
 ## Questions ouvertes
 
 À poser à **ORES** :

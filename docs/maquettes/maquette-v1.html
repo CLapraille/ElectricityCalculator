@@ -208,6 +208,20 @@
   table.t tr.drow td:first-child { padding-left: 44px; color: var(--muted); }
   .dbar { display: inline-block; width: 34px; height: 6px; border-radius: 3px; background: var(--surface-2); margin-right: 6px; vertical-align: middle; }
   .dbar i { display: block; height: 100%; border-radius: 3px; background: var(--sun); }
+  .carwrap { display: grid; grid-template-columns: 130px 1fr; gap: 14px; align-items: center; }
+  .carwrap .ringbox { max-width: 130px; }
+  .carwrap .ringtxt b { color: var(--car); font: 700 1.2rem/1.1 var(--display); }
+  .kv { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 0.84rem; }
+  .kv li { display: grid; gap: 0; }
+  .kv li b { font-size: 0.9rem; }
+  .kv li span { color: var(--muted); display: inline-flex; align-items: center; gap: 6px; font-size: 0.76rem; }
+  .actor.soft { opacity: 0.6; }
+  .form { display: grid; gap: 10px; }
+  .form label { display: grid; grid-template-columns: 1fr 96px 28px; gap: 8px; align-items: center; font-size: 0.88rem; }
+  .form label span { color: var(--muted); }
+  .form input { font: inherit; font-family: var(--mono); text-align: right; padding: 7px 9px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); width: 100%; }
+  .form em { font-style: normal; color: var(--muted); font-size: 0.82rem; }
+  .btn.carbtn { background: var(--car); border-color: var(--car); color: var(--surface); }
   .ringcap { font-size: 0.8rem; color: var(--muted); text-align: center; }
 
   .gaugehead { display: flex; align-items: center; gap: 10px; }
@@ -349,6 +363,22 @@
           <div class="ringbox"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track dashed"/></svg><div class="ringtxt"><span class="actor sm battery"><svg class="i"><use href="#i-battery"/></svg></span><b class="num">— %</b><span>batterie</span></div></div>
           <div class="cap2">pas encore installée<br>prévue après 2030</div>
         </div>
+        <div class="card car wide">
+          <div class="cardhead"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><span class="ttl">Voiture</span><span class="example">exemple</span></div>
+          <div class="carwrap">
+            <div class="ringbox">
+              <svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="val" stroke-dasharray="210 400"/><circle cx="60" cy="60" r="50" class="val soft" stroke-dasharray="94 400" stroke-dashoffset="-215"/></svg>
+              <div class="ringtxt"><b class="num">6,5 c€</b><span>par km</span></div>
+            </div>
+            <ul class="kv">
+              <li><span>Kilomètres du mois</span><b class="num">870 km</b></li>
+              <li><span>Consommation</span><b class="num">15,1 kWh/100 km</b></li>
+              <li><span><i class="sw" style="--c:var(--car)"></i> Maison</span><b class="num">89 kWh · 34,98 €</b></li>
+              <li><span><i class="sw soft" style="--c:var(--car)"></i> Superchargeurs</span><b class="num">42 kWh · 21,84 €</b></li>
+            </ul>
+          </div>
+          <div class="info">Superchargeurs : suivi seulement, ils ne passent pas par le compteur et ne sont pas provisionnés sur le compte séparé.</div>
+        </div>
         <div class="card sun wide">
           <div class="cardhead"><span class="actor sm sun"><svg class="i"><use href="#i-sun"/></svg></span><span class="ttl">Recharges encore « gratuites »</span><b class="num">≈ 824 kWh</b></div>
           <div class="gauge"><span style="width:90%"></span></div>
@@ -436,6 +466,28 @@
             <span class="sub">6 h 40 · <span class="chip warn">à virer</span></span>
           </button>
         </div>
+        </div>
+        <div class="card car wide">
+          <div class="cardhead"><span class="actor sm car"><svg class="i"><use href="#i-plug"/></svg></span><span class="ttl">Superchargeurs</span><span class="chip">suivi seulement</span></div>
+          <div class="list">
+            <div class="row">
+              <span class="actor sm car soft"><svg class="i"><use href="#i-plug"/></svg></span>
+              <span class="main">Mer. 5 nov. · Arlon</span>
+              <span class="amt num">21,84 €<small>42 kWh</small></span>
+              <span class="sub">0,52 €/kWh · facture PDF</span>
+            </div>
+          </div>
+          <div class="info">Relevé dans l'app Tesla (historique de recharge). Hors compteur : pas de provision sur le compte séparé.</div>
+        </div>
+        <div class="card car wide">
+          <div class="cardhead"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><span class="ttl">Saisie du mois</span><span class="example">exemple</span></div>
+          <form class="form" onsubmit="return false">
+            <label><span>Kilométrage au 30/11</span><input type="text" inputmode="numeric" value="12 480" aria-label="Kilométrage en fin de mois" /> <em>km</em></label>
+            <label><span>Superchargeurs : énergie</span><input type="text" inputmode="decimal" value="42" aria-label="kWh aux Superchargeurs" /> <em>kWh</em></label>
+            <label><span>Superchargeurs : montant</span><input type="text" inputmode="decimal" value="21,84" aria-label="Montant aux Superchargeurs" /> <em>€</em></label>
+            <div class="btns"><button class="btn primary carbtn" type="button">Enregistrer</button><button class="btn" type="button">Déposer une facture</button></div>
+          </form>
+          <div class="info">Une saisie par mois : le kilométrage (app Tesla ou Contrôles → Logiciel) et le total des Superchargeurs.</div>
         </div>
         <div class="card grid wide">
           <div class="cardhead"><span class="actor sm car"><svg class="i"><use href="#i-car"/></svg></span><span class="ttl">Recharge de 20 kWh</span><b class="num">7,83 €</b></div>
