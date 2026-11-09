@@ -7,7 +7,7 @@ import type { TariffCard } from './tariff.ts';
 const base: YearScenario = {
   offtakeKwh: 0,
   injectionKwh: 913,
-  carKwh: 2700,
+  carKwh: 5000,
   compensation: true,
   inverterKva: household.inverterKwe,
   indices: { BELPEX_M_RLP: household.belpexMRlpOctober2026, BELPEX_M: 104.5 },
@@ -25,14 +25,14 @@ describe('facture annuelle estimée', () => {
 
   it('avec la voiture : seuls les kWh au-delà du surplus s’ajoutent', () => {
     const b = annualBill(card, base);
-    expect(b.billableKwh).toBe(1787);
-    expect(scenarioBillableCarKwh(base)).toBe(1787);
+    expect(b.billableKwh).toBe(4087);
+    expect(scenarioBillableCarKwh(base)).toBe(4087);
   });
 
   it('sans compensation : plus de tarif prosumer, injection rémunérée', () => {
     const b = annualBill(card, { ...base, compensation: false, offtakeKwh: 1500, injectionKwh: 2400 });
     expect(b.fixed.some((f) => f.key === 'prosumer')).toBe(false);
-    expect(b.billableKwh).toBe(4200);
+    expect(b.billableKwh).toBe(6500);
     // 2 400 kWh × (0,0235 × 104,5 − 0,625) c€ = 43,94 €
     expect(b.injectionCreditCents).toBe(4394);
   });
@@ -52,9 +52,9 @@ describe('comparaison de contrats', () => {
     const rows = compareContracts([card, cheaperEnergy], base);
     expect(rows.map((r) => r.cardId)).toEqual(['fictif-moins-cher', card.id]);
     const mc = rows.find((r) => r.cardId === card.id)!;
-    // Les frais fixes s'annulent : marginal = 1 787 kWh au prix variable complet (≈ 39,1 c€).
+    // Les frais fixes s'annulent : marginal = 4 087 kWh au prix variable complet (≈ 39,1 c€).
     expect(mc.carMarginalCents).toBe(mc.withCar.variable.tvacCents);
-    expect(mc.carMarginalCents).toBe(69_933);
+    expect(mc.carMarginalCents).toBe(159_945);
   });
 
   it('sans voiture, le fournisseur au plus petit abonnement gagne (énergie non facturée)', () => {

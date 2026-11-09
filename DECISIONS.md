@@ -69,6 +69,10 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   sont régulés et identiques.
 - ✅ **D16 Arrondis** : chaque ligne HTVA (kWh × c€/kWh) arrondie au centime, puis TVA par taux sur la somme des lignes
   de ce taux, comme sur les factures. Prix unitaires non arrondis (❓ Q5).
+- ✅ **D17 Volume de recharge** : **≈ 5 000 kWh/an** à la borne pour ≈ 35 000 km/an (chiffre de l'utilisateur,
+  ≈ 14,3 kWh/100 km pertes comprises). Avec le surplus 2025-2026 (913 kWh) : ≈ 4 087 kWh facturés, provision
+  ≈ 1 957 €/an (≈ 163 €/mois), part réelle ≈ 1 600 €, ≈ 357 € à reprendre à la régularisation (indice 114,46).
+  Les recharges hors domicile (Superchargeurs) ne sont pas comptées : seule la borne compte (D3).
 
 ## Questions ouvertes
 
