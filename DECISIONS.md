@@ -74,6 +74,16 @@ factures de régularisation 2025 et 2026 (non versionnées : dépôt public). V�
   ≈ 1 957 €/an (≈ 163 €/mois), part réelle ≈ 1 600 €, ≈ 357 € à reprendre à la régularisation (indice 114,46).
   Les recharges hors domicile (Superchargeurs) ne sont pas comptées : seule la borne compte (D3).
 
+- ✅ **D18 Contrat** : **rester chez TotalEnergies myComfort Variable** pour l'instant. Comparaison du 09/11/2026
+  (Comparateur-energie.be, 4 843 kWh, prix bihoraires TVAC, réseau identique 1 452,50 €) : part fournisseur
+  récurrente myComfort ≈ 977 € (indice 114,46) contre 1 214 € (Engie Easy Fixed), 1 256 € (Engie Easy),
+  1 317 € (Eneco Soleil & Vent Fix One), 1 322 € (Luminus ComfyFlex), 1 406 € (Luminus Comfy). Seule la prime de
+  bienvenue d'Engie Easy Fixed (−387 €) la bat la 1re année (≈ 150 à 220 €). Prix mono des concurrents non connus.
+- ✅ **D19 Tarif IMPACT** : à étudier quand le compteur communicant sera actif. Gain potentiel si toutes les recharges
+  tombent en heures ECO : ≈ 6,9 c€/kWh TVAC de distribution (5,09 au lieu de 11,98), soit ≈ 280 €/an sur ≈ 4 087 kWh
+  facturés, à mettre en balance avec la consommation du foyer en heures PIC (16,57). Dépend de Q2 (compatibilité avec
+  la compensation) et demande des données horodatées (Zaptec, P1).
+
 ## Questions ouvertes
 
 À poser à **ORES** :
